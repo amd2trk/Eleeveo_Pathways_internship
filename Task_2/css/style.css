@@ -1,0 +1,39 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body{
+background-color: blueviolet;
+}
+form {
+  margin: auto;
+  width: 80%;
+  background-color: aqua;
+  padding: 30px;
+}
+form fieldset {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: bisque;
+}
+
+form table td {
+  padding-block: 5px;
+}
+form input,
+textarea {
+  border-radius: 5px;
+}
+form textarea {
+  resize: both;
+}
+form button {
+  align-self: center;
+  width: 15%;
+  cursor: pointer;
+}
+form button p {
+  font-size: 1rem;
+}
