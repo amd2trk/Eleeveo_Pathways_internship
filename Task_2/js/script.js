@@ -1,53 +1,74 @@
-function validateForm() {
-    // Get form elements
-    const fullName = document.getElementById('full-name').value.trim();
-    const email = document.getElementById('Email').value.trim();
-    const subject = document.getElementById('Subject').value.trim();
-    const message = document.getElementById('message').value.trim();
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('contact-form');
 
-    // Check required fields
-    if (!fullName) {
-        alert('Please enter your full name.');
-        return false;
-    }
-    if (!email) {
-        alert('Please enter your email address.');
-        return false;
-    }
-    if (!subject) {
-        alert('Please enter a subject.');
-        return false;
-    }
-    if (!message) {
-        alert('Please enter a message.');
-        return false;
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        clearErrors();
+
+        const isFormValid = validateForm();
+
+        if (isFormValid) {
+            alert('Form submitted successfully!');
+            form.reset(); 
+        }
+    });
+
+    function validateForm() {
+        let isValid = true;
+
+        const fullName = document.getElementById('full-name');
+        const email = document.getElementById('email');
+        const subject = document.getElementById('subject');
+        const message = document.getElementById('message');
+
+        if (fullName.value.trim() === '') {
+            showError(fullName, 'Please enter your full name.');
+            isValid = false;
+        } else if (fullName.value.trim().split(' ').length < 2) {
+            showError(fullName, 'Please enter both first and last names.');
+            isValid = false;
+        }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (email.value.trim() === '') {
+            showError(email, 'Please enter your email address.');
+            isValid = false;
+        } else if (!emailRegex.test(email.value.trim())) {
+            showError(email, 'Please enter a valid email address.');
+            isValid = false;
+        }
+
+        if (subject.value.trim() === '') {
+            showError(subject, 'Please enter a subject.');
+            isValid = false;
+        } else if (subject.value.trim().length < 5) {
+            showError(subject, 'Subject must be at least 5 characters long.');
+            isValid = false;
+        }
+
+        if (message.value.trim() === '') {
+            showError(message, 'Please enter a message.');
+            isValid = false;
+        } else if (message.value.trim().length < 10) {
+            showError(message, 'Message must be at least 10 characters long.');
+            isValid = false;
+        }
+
+        return isValid;
     }
 
-    // ✅ Full name validation: must contain at least two words
-    const nameParts = fullName.split(" ");
-    if (nameParts.length < 2) {
-        alert("Please enter your full name (first and last).");
-        return false;
+    function showError(inputElement, message) {
+        const errorSpan = inputElement.nextElementSibling;
+        errorSpan.textContent = message;
+        inputElement.style.borderColor = '#e53e3e'; 
     }
 
-    // ✅ Subject validation: at least 3 characters
-    if (subject.length < 3) {
-        alert("Subject must be at least 3 characters long.");
-        return false;
-    }
+    function clearErrors() {
+        const errorMessages = document.querySelectorAll('.error-message');
+        errorMessages.forEach(span => span.textContent = '');
 
-    // ✅ Message validation: at least 10 characters
-    if (message.length < 10) {
-        alert("Message must be at least 10 characters long.");
-        return false;
+        const inputs = document.querySelectorAll('input, textarea');
+        inputs.forEach(input => input.style.borderColor = '#ccc');
     }
-
-    // Basic email format validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-        alert('Please enter a valid email address.');
-        return false;
-    }
-
-    return true;
-}
+});

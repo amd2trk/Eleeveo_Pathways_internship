@@ -1,33 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./css/stylesheet.css">
-  <script src="./js/script.js"></script>
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/media.css">
+    <script src="https://kit.fontawesome.com/c8263953c1.js" crossorigin="anonymous"></script>
+    <title>Collapsible Sidebar</title>
 </head>
-
 <body>
-  <div class="sidebar">
-    <div class="top">
-      <img src="./brand-7833518_1280.png" alt="logo">
-      <button type="button" id="side-bar"><i class="fas fa-angle-left"></i></button>
-    </div>
-    <div class="links">
-      <ul>
-        <li><a href=""><i class="fab fa-atlassian	">Atlassian</i></a></li>
-        <li><a href=""><i class="fab fa-audible	">Audible</i></a></li>
-        <li><a href=""><i class="fab fa-avianex	">Avianex</i></a></li>
-        <li><a href=""><i class="fab fa-bitcoin	">Bitcoin</i></a></li>
-        <li><a href=""><i class="fab fa-blackberry	"> Blackberry</i></a></li>
-      </ul>
-    </div>
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <a href="#" class="logo-wrapper">
+                <img src="./brand-7833518_1280.png" alt="Company Logo" class="logo-icon">
+                <span class="logo-text">BrandName</span>
+            </a>
+            <button type="button" id="toggle-btn" aria-label="Toggle Sidebar">
+                <i class="fas fa-angle-left"></i>
+            </button>
+        </div>
 
-  </div>
-  <script src="https://kit.fontawesome.com/c8263953c1.js" crossorigin="anonymous"></script>
+        <ul class="sidebar-links">
+            <li><a href="#"><i class="fab fa-atlassian"></i><span class="link-text">Atlassian</span></a></li>
+            <li><a href="#"><i class="fab fa-audible"></i><span class="link-text">Audible</span></a></li>
+            <li><a href="#"><i class="fab fa-avianex"></i><span class="link-text">Avianex</span></a></li>
+            <li><a href="#"><i class="fab fa-bitcoin"></i><span class="link-text">Bitcoin</span></a></li>
+            <li><a href="#"><i class="fab fa-blackberry"></i><span class="link-text">Blackberry</span></a></li>
+        </ul>
+    </nav>
 
+    <main class="main-content">
+        <header>
+            <h1>Main Content Area</h1>
+        </header>
+        <div class="content">
+            <p>The sidebar is currently open. Click the toggle button to collapse it.</p>
+            <p>This area adjusts automatically when the sidebar's state changes.</p>
+        </div>
+    </main>
+
+    <script src="./js/script.js"></script>
 </body>
-
 </html>

@@ -1,15 +1,39 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const sidebarButton = document.getElementById("side-bar")
-  const sidebar = document.querySelector(".sidebar")
-  const buttonIcon = sidebarButton.querySelector("i")
+    const toggleButton = document.getElementById("toggle-btn");
+    const sidebar = document.querySelector(".sidebar");
+    const mainContent = document.querySelector(".main-content");
+    const buttonIcon = toggleButton.querySelector("i");
+    let isSidebarCollapsed = false;
 
-  sidebarButton.addEventListener("click", () => {
-    sidebar.classList.toggle("collapsed")
-
-    if (sidebar.classList.contains("collapsed")) {
-      buttonIcon.className = "fas fa-angle-right"
-    } else {
-      buttonIcon.className = "fas fa-angle-left"
+    function handleToggle() {
+        if (window.innerWidth <= 768) {
+            sidebar.classList.toggle("open");
+            document.body.classList.toggle("sidebar-open");
+            
+        } else {
+            sidebar.classList.toggle("collapsed");
+            mainContent.classList.toggle("collapsed");
+            isSidebarCollapsed = sidebar.classList.contains("collapsed");
+            
+            if (isSidebarCollapsed) {
+                buttonIcon.className = "fas fa-angle-right";
+            } else {
+                buttonIcon.className = "fas fa-angle-left";
+            }
+        }
     }
-  })
-})
+
+    toggleButton.addEventListener("click", handleToggle);
+
+    document.addEventListener('click', function(event) {
+        if (window.innerWidth <= 768 && sidebar.classList.contains('open')) {
+            const isClickInsideSidebar = sidebar.contains(event.target);
+            const isClickOnToggleButton = toggleButton.contains(event.target);
+
+            if (!isClickInsideSidebar && !isClickOnToggleButton) {
+                sidebar.classList.remove("open");
+                document.body.classList.remove("sidebar-open");
+            }
+        }
+    });
+});
