@@ -1,0 +1,42 @@
+@media screen and (min-width:800px) {
+    .container{
+        width: 70%;
+    }
+    .features .feature-boxes .feature{
+        width: 48%;
+        column-gap: 20px;
+    }
+    .reviews .reviews-block .review{
+        width: 48%;
+        column-gap: 20px;
+    }
+    .pricing .pricing-block .price{
+        width: 45%;
+        column-gap: 20px;
+    }
+    .footer .container .boxes > div{
+        width: 45%;
+        column-gap: 20px;
+    }
+}
+@media screen and (min-width:1500px) {
+    .container{
+        width: 70%;
+    }
+    .features .feature-boxes .feature{
+        width: 31%;
+        column-gap: 20px;
+    }
+    .reviews .reviews-block .review{
+        width: 31%;
+        column-gap: 20px;
+    }
+    .pricing .pricing-block .price{
+        width: 30%;
+        column-gap: 20px;
+    }
+    .footer .container .boxes > div{
+        width: 30%;
+        column-gap: 20px;
+    }
+}
