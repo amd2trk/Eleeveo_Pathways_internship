@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/media.css">
+    <script src="https://kit.fontawesome.com/c8263953c1.js" crossorigin="anonymous"></script>
+    <title>My Personal Blog</title>
+</head>
+
+<body>
+    <header class="blog-header">
+        <div class="container">
+            <h1>My Personal Blog</h1>
+            <p>Exploring the world, one post at a time.</p>
+        </div>
+    </header>
+
+    <main class="blog-main">
+        <div class="container">
+            <div class="controls-area">
+                <div class="category-filters">
+                    <button class="filter-btn active" data-category="all">All</button>
+                    <button class="filter-btn" data-category="tech">Tech</button>
+                    <button class="filter-btn" data-category="travel">Travel</button>
+                    <button class="filter-btn" data-category="food">Food</button>
+                    <button class="filter-btn" data-category="lifestyle">Lifestyle</button>
+                </div>
+                <div class="search-area">
+                    <input type="text" id="search-input" placeholder="Search by title...">
+                    <i class="fas fa-search"></i>
+                </div>
+            </div>
+
+            <div class="blog-posts-grid">
+                <!-- Blog posts will be loaded here by JavaScript -->
+            </div>
+
+            <div class="pagination-controls">
+                <button id="prev-page" disabled><i class="fas fa-chevron-left"></i> Previous</button>
+                <span id="page-info">Page 1 of 1</span>
+                <button id="next-page" disabled>Next <i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="boxes">
+                <div class="blog-info">
+                    <div class="title">
+                        <h3><i class="fas fa-feather-alt"></i> My Blog</h3>
+                    </div>
+                    <p>Sharing thoughts, experiences, and knowledge with the world.</p>
+                    <ul>
+                        <li><i class="fab fa-twitter"></i></li>
+                        <li><i class="fab fa-instagram"></i></li>
+                        <li><i class="fab fa-github"></i></li>
+                    </ul>
+                </div>
+                <div class="contact">
+                    <h3>Connect</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i>contact@myblog.com</li>
+                        <li><i class="fas fa-link"></i>myblog.com/about</li>
+                    </ul>
+                </div>
+                <div class="quick-links">
+                    <h3>Categories</h3>
+                    <ul>
+                        <li><a href="#" data-category="tech" class="filter-link">Tech</a></li>
+                        <li><a href="#" data-category="travel" class="filter-link">Travel</a></li>
+                        <li><a href="#" data-category="food" class="filter-link">Food</a></li>
+                        <li><a href="#" data-category="lifestyle" class="filter-link">Lifestyle</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="policy">
+                <div class="line"></div>
+                <p>© 2024 My Personal Blog. All rights reserved.</p>
+                <ul>
+                    <li>Terms of Service</li>
+                    <li>Privacy Policy</li>
+                    <li>Cookie Policy</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+<script src="js/script.js"></script>
+</body>
+
+</html>

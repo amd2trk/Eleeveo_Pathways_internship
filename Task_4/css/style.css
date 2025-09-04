@@ -1,0 +1,332 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+:root {
+    --main-text-color: rgba(59, 59, 59, 0.5);
+    --secondary-text-color: rgba(0, 0, 0, 1);
+    --primary-color: #3b3b3b; /* Dark grey for main elements */
+    --accent-color: #007bff; /* A blue for active states/links */
+    --light-grey: rgb(243, 242, 241);
+    --border-color: rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    color: var(--primary-color);
+}
+
+.container {
+    width: 90%; /* A bit wider for mobile */
+    margin: auto;
+}
+
+/* Header */
+.blog-header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 30px 0; /* Reduced padding for mobile */
+    text-align: center;
+}
+
+.blog-header h1 {
+    font-size: 2.5rem; /* Smaller font for mobile */
+    margin-bottom: 8px;
+}
+
+.blog-header p {
+    font-size: 1rem; /* Smaller font for mobile */
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Main Content */
+.blog-main {
+    padding: 40px 0; /* Reduced padding for mobile */
+    background-color: white;
+}
+
+.controls-area {
+    display: flex;
+    flex-direction: column; /* Stack controls vertically on mobile */
+    gap: 15px; /* Reduced gap */
+    margin-bottom: 30px; /* Reduced margin */
+    align-items: center; /* Center items on mobile */
+}
+
+.category-filters {
+    display: flex;
+    flex-wrap: wrap; /* Allow buttons to wrap */
+    gap: 8px; /* Smaller gap for buttons */
+    justify-content: center; /* Center filter buttons */
+    width: 100%; /* Take full width */
+}
+
+.category-filters .filter-btn {
+    background-color: var(--light-grey);
+    border: 1px solid var(--border-color);
+    padding: 8px 12px; /* Smaller padding */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.85rem; /* Smaller font */
+    color: var(--primary-color);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.category-filters .filter-btn:hover {
+    background-color: var(--border-color);
+}
+
+.category-filters .filter-btn.active {
+    background-color: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
+}
+
+.search-area {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    padding: 6px 10px; /* Smaller padding */
+    background-color: var(--light-grey);
+    width: 100%; /* Full width on mobile */
+    max-width: 280px; /* A reasonable max width for mobile */
+}
+
+.search-area input {
+    border: none;
+    outline: none;
+    flex-grow: 1;
+    padding: 5px;
+    background-color: transparent;
+    font-size: 0.9rem; /* Smaller font */
+    color: var(--primary-color);
+}
+
+.search-area i {
+    color: var(--main-text-color);
+    margin-left: 8px;
+    font-size: 0.9rem;
+}
+
+.blog-posts-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column on mobile */
+    gap: 20px; /* Reduced gap */
+    margin-bottom: 30px; /* Reduced margin */
+}
+
+.blog-post-card {
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Lighter shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-post-card:hover {
+    transform: translateY(-3px); /* Slightly less lift on hover */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Slightly more shadow */
+}
+
+.blog-post-card img {
+    width: 100%;
+    height: 180px; /* Smaller image height for mobile */
+    object-fit: cover;
+}
+
+.blog-post-card .card-content {
+    padding: 15px; /* Reduced padding */
+}
+
+.blog-post-card h3 {
+    font-size: 1.3rem; /* Smaller font for mobile */
+    margin-bottom: 8px;
+    color: var(--secondary-text-color);
+}
+
+.blog-post-card .post-description {
+    color: var(--main-text-color);
+    margin-bottom: 12px;
+    font-size: 0.9rem; /* Smaller font */
+}
+
+.blog-post-card .card-meta {
+    display: flex;
+    flex-direction: column; /* Stack meta info vertically on mobile */
+    align-items: flex-start; /* Align left */
+    font-size: 0.8rem; /* Smaller font */
+    color: var(--main-text-color);
+    gap: 5px; /* Gap between stacked items */
+}
+
+.blog-post-card .card-meta i {
+    margin-right: 5px;
+    color: var(--accent-color);
+}
+
+.no-posts-message {
+    text-align: center;
+    font-size: 1.1rem; /* Smaller font */
+    color: var(--main-text-color);
+    grid-column: 1 / -1;
+}
+
+/* Pagination */
+.pagination-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px; /* Reduced gap */
+    margin-top: 20px; /* Reduced margin */
+}
+
+.pagination-controls button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 8px 15px; /* Smaller padding */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem; /* Smaller font */
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px; /* Smaller gap */
+}
+
+.pagination-controls button:hover:not(:disabled) {
+    background-color: var(--accent-color);
+}
+
+.pagination-controls button:disabled {
+    background-color: var(--main-text-color);
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.pagination-controls #page-info {
+    font-size: 0.9rem; /* Smaller font */
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+
+/* Footer - Mobile-first styling */
+.footer {
+    background-color: rgba(128, 128, 128, 0.2);
+    font-weight: 300;
+    padding-top: 30px; /* Adjusted padding */
+}
+
+.footer .container .boxes {
+    display: flex;
+    flex-direction: column; /* Stack boxes vertically on mobile */
+    gap: 30px; /* Space between stacked sections */
+    margin-bottom: 20px; /* Space before policy */
+}
+
+.footer .container .boxes > div {
+    width: 100%; /* Full width on mobile */
+    padding: 0 10px; /* Add some horizontal padding */
+}
+
+.footer .blog-info .title {
+    font-size: 1.3rem; /* Smaller font */
+    padding-bottom: 10px;
+}
+
+.footer .blog-info .title i {
+    margin-right: 8px;
+    color: var(--primary-color);
+}
+
+.footer .blog-info p {
+    color: var(--main-text-color);
+    padding: 8px 0;
+    font-size: 0.9rem;
+}
+
+.footer .blog-info ul {
+    list-style-type: none;
+    display: flex;
+    column-gap: 15px; /* Smaller gap */
+    padding-left: 0;
+    padding-top: 10px;
+    justify-content: center; /* Center icons on mobile */
+}
+
+.footer .blog-info ul li i {
+    color: var(--primary-color);
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+.footer .blog-info ul li i:hover {
+    color: var(--accent-color);
+}
+
+.footer .contact h3, .footer .quick-links h3 {
+    margin-bottom: 12px;
+    color: var(--secondary-text-color);
+    font-size: 1.1rem;
+    text-align: center; /* Center headers */
+}
+
+.footer .contact ul, .footer .quick-links ul {
+    list-style: none;
+    padding: 0;
+    color: var(--main-text-color);
+    font-size: 0.9rem;
+    text-align: center; /* Center list items */
+}
+
+.footer .contact ul li, .footer .quick-links ul li {
+    padding: 4px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center content in list items */
+}
+
+.footer .contact ul li i {
+    padding-right: 8px;
+    color: var(--accent-color);
+}
+
+.footer .quick-links ul li a {
+    text-decoration: none;
+    color: var(--main-text-color);
+    transition: color 0.3s ease;
+}
+
+.footer .quick-links ul li a:hover {
+    color: var(--accent-color);
+}
+
+.footer .policy .line {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.footer .policy {
+    text-align: center;
+    color: var(--main-text-color);
+    padding-bottom: 15px;
+}
+
+.footer .policy ul {
+    padding-top: 10px;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 15px; /* Reduced gap */
+    justify-content: center;
+    font-size: 0.8rem;
+}
+.footer .policy ul li {
+    padding: 3px 0;
+}
